@@ -7,16 +7,51 @@
     <!-- CSS -->
     <link rel="stylesheet" href="index.css">
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <main>
-        
+    <main class="container-fluid min-vh-100 d-flex align-items-center justify-content-center gray-background">
+        <!-- Outer card row -->
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="d-flex flex-column flex-md-row rounded-4 overflow-hidden" style="background: #1E2229">
+                    <!-- Left info panel -->
+                    <div class="flex-fill p-5 d-flex flex-column justify-content-between" style="background: #14161C">
+                        <!-- Header section -->
+                        <div>
+                            <!-- Main Title -->
+                            <h1 class="h1 text-white mb-2">Fake Store</h1>
+                            <!-- Subtitle -->
+                            <h2 class="h2 text-white mb-4">Is under construction</h2>
+                            <!-- Description (smaller body-xss for project details) -->
+                            <p class="body-xxs white-pp mb-1">
+                                Platzi API Store is a project that uses the Platzi API
+                                (<a href="https://fakeapi.platzi.com/" class="body-xxs green" target="_blank">https://fakeapi.platzi.com/</a>)
+                                to create a web store using vanilla JavaScript, HTML, and Bootstrap. The focus of this project is to build a website with proper HTTP protocols, async functions, and an OOP structure in JavaScript.
+                            </p>
+                        </div>
+                        <!-- Footer with GitHub icon -->
+                        <div class="mt-4">
+                            <!-- GitHub icon button -->
+                            <a href="https://github.com/TasyDev/Fake-Store" class="d-inline-block" style="width:40px; height:40px;" aria-label="GitHub Repository" target="_blank">
+                                <!-- Inline SVG for GitHub icon, styled -->
+                                <img src="assets/logos/GitHub.svg" alt="GitHub" style="width:32px;">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Right logo panel (green background) -->
+                    <div class="flex-fill d-flex align-items-center justify-content-center green-background" style="min-width: 220px; min-height: 280px;">
+                        <!-- Central Platzi-Black icon -->
+                        <img src="assets/logos/Icon-Platzi-Black.svg" alt="Platzi Icon" style="width: 70%; min-width: 120px; max-width: 220px;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <!-- JavaScript -->
     <script src="app.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
