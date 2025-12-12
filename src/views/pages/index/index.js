@@ -35,7 +35,7 @@ async function tryGetCategory() {
                             <div class="flex-grow-1 p-3">
                                 <h2 class="h2 text-white mb-3">${item.name}</h2>
                             </div>
-                            <img src="${item.image}" alt="${item.slug}" class="flex-shrink-0" style="150px-width: auto; height: 100%;">
+                            <img src="${item.image}" alt="${item.slug}" class="flex-shrink-0 rounded-3" style="width:150px; height:150px; object-fit:cover;">
                         </div>
                     </div>
                 </div>
