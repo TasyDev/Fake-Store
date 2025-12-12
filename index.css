@@ -157,12 +157,6 @@
     letter-spacing: 0.5px;
 }
 
-.button-reset {
-  border: none;
-  box-shadow: none;
-  outline: none;
-}
-
 /* Combined Classes */
 .strong-green {
     font-weight: 700;
@@ -195,10 +189,6 @@
 del {
     text-decoration: line-through;
     color: #1E2229;
-}
-
-.padding-grande {
-    padding: 5rem !important;
 }
 
 /* Responsive base styles */
