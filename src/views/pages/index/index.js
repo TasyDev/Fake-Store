@@ -12,5 +12,18 @@ heroSectionHTML.after(categorySection);
 lastProductsSection.className = "last-products";
 categorySection.after(lastProductsSection);
 
+function mensaggeWaiting() {
+    const wating = '<h2 class="text-white">Cargando</h2>'
+    lastProductsSection.innerHTML = wating
+    categorySection.innerHTML = wating
+}
+
+async function getCategorys() {
+    mensaggeWaiting()
+    const categoryArray = await categories();
+    categorySection.innerHTML = "Hola"
+}
+
+getCategorys();
 
 
