@@ -4,18 +4,16 @@ import { getData } from "../../../data/api/getAll.js";
 const heroSectionHTML = document.getElementById("hero");
 
 //Gobal variables
-const categorySection = document.createElement("section");
-const lastProductsSection = document.createElement("section");
+const categorySection = document.getElementById("categorys");
+const lastProductsSection = document.getElementById("posts");
 
-//HTML inyection
-categorySection.className = "row justify-content-center g-3 h-100 w-100 py-5 px-5";
-heroSectionHTML.after(categorySection);  
-lastProductsSection.className = "row justify-content-center w-100 py-5 px-4 last-products";
-categorySection.after(lastProductsSection);
+// Add layout classes to existing sections (same behavior as before)
+categorySection.classList.add("row", "justify-content-center", "g-3", "h-100", "w-100", "py-5", "px-5");
+lastProductsSection.classList.add("row", "justify-content-center", "w-100", "py-5", "px-4", "last-products");
 
 function createMensaggeWaiting(idSection) {
     const createLoadingMessage = document.createElement("h2");
-    createLoadingMessage.className = "text-white text-center w-100";
+    createLoadingMessage.className = "text-white text-center w-100 loading-message";
     createLoadingMessage.textContent = "Cargando...";
     idSection.appendChild(createLoadingMessage);
 }
@@ -29,7 +27,7 @@ function createErrorMessage(idSection, error) {
 }
 
 function deleteMensaggeWaiting(idSection) {
-    const loadingMessage = idSection.querySelector("h2");
+    const loadingMessage = idSection.querySelector(".loading-message");
     if (loadingMessage) {
         loadingMessage.remove();
     }
