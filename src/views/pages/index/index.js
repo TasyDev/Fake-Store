@@ -21,6 +21,14 @@ function createMensaggeWaiting(idSection) {
     idSection.appendChild(createLoadingMessage);
 }
 
+function createErrorMessage(idSection, error) {
+    const createError = document.createElement("h2");
+    createError.className = "text-danger text-center w-100";
+    createError.textContent = "Error";
+    idSection.appendChild(createError);
+    console.log(error);
+}
+
 function deleteMensaggeWaiting(idSection) {
     const loadingMessage = idSection.querySelector("h2");
     if (loadingMessage) {
@@ -30,8 +38,13 @@ function deleteMensaggeWaiting(idSection) {
 
 async function getCategorys() {
     createMensaggeWaiting(categorySection)
-    const categoryArray = await categories();
-    printCategory(categoryArray);
+    try {
+        const categoryArray = await categories();
+        printCategory(categoryArray);
+    } catch (error) {
+        deleteMensaggeWaiting(categorySection);
+        createErrorMessage(categorySection, error);
+    }
 }
 
 
@@ -56,8 +69,13 @@ function printCategory(data){
 
 async function get3Products() {
     createMensaggeWaiting(lastProductsSection)
-    const productsArray = await getData();
-    printProduts(productsArray);
+    try {
+        const productsArray = await getData();
+        printProduts(productsArray);
+    } catch (error) {
+        deleteMensaggeWaiting(lastProductsSection);
+        createErrorMessage(lastProductsSection, error);
+    }
 }
 
 function printProduts(data){
@@ -69,7 +87,7 @@ function printProduts(data){
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
             <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
-                <img src="${i.images}" alt="${i.title}" class="img-fluid w-100 pb-2">
+                <img src="${i.imagen}" alt="${i.title}" class="img-fluid w-100 pb-2">
                 <h3 class="text-white">
                     ${i.title}
                 </h3> 
