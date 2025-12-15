@@ -84,7 +84,7 @@ function printProduts(data){
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
             <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
-                <img src="${i.imagen}" alt="${i.title}" class="img-fluid w-100 pb-2">
+                <img src="${i.imagen[0]}" alt="${i.title}" class="img-fluid w-100 pb-2">
                 <h3 class="text-white">
                     ${i.title}
                 </h3> 
