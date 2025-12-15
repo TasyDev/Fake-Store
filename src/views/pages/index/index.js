@@ -56,7 +56,8 @@ function printCategory(data){
                     <div class="flex-grow-1 p-3">
                         <h2 class="h2 text-white mb-3">${i.name}</h2>
                     </div>
-                    <img src=${i.image} alt=${i.name} class="flex-shrink-0 rounded-3" style="width:150px; height:150px; object-fit:cover;">
+                    <img src="${i.image}" alt="${i.name}" class="flex-shrink-0 rounded-3" style="width:150px; height:150px; object-fit:cover;"
+                        onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
                 </div>
             </div>
         `;
@@ -84,7 +85,8 @@ function printProduts(data){
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
             <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
-                <img src="${i.imagen}" alt="${i.title}" class="img-fluid w-100 pb-2">
+                <img src="${i.images[0]}" alt="${i.title}" class="img-fluid w-100 pb-2"
+                    onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
                 <h3 class="text-white">
                     ${i.title}
                 </h3> 
