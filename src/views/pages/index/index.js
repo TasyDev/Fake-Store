@@ -46,6 +46,8 @@ function printCategory(data){
     })
 }
 
+
+
 getCategorys();
 
 
