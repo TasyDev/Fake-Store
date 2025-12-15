@@ -50,7 +50,7 @@ async function getCategorys() {
 
 function printCategory(data){
     deleteMensaggeWaiting(categorySection)
-    data.map((i) =>{
+    data.forEach((i) =>{
         const divCategory = document.createElement("div");
         divCategory.className = "col-md-4 pb-3";
         divCategory.innerHTML = `
@@ -82,7 +82,7 @@ function printProduts(data){
     deleteMensaggeWaiting(lastProductsSection);
     const row = document.createElement("div");
     row.className = "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 col-12 col-md-10";
-    data.map((i) => {
+    data.forEach((i) => {
         const divProduct = document.createElement("div");
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
