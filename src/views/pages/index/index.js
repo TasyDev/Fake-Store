@@ -1,4 +1,5 @@
 import { categories } from "../../../data/api/getCategory.js";
+import { getData } from "../../../data/api/getAll.js";
 
 const heroSectionHTML = document.getElementById("hero");
 
@@ -12,23 +13,27 @@ heroSectionHTML.after(categorySection);
 lastProductsSection.className = "last-products";
 categorySection.after(lastProductsSection);
 
-function mensaggeWaiting() {
-    const loadingMessage = document.createElement("h2");
-    loadingMessage.className = "text-white text-center w-100";
-    loadingMessage.textContent = "Cargando...";
-    categorySection.appendChild(loadingMessage);
+function createMensaggeWaiting(idSection) {
+    const createLoadingMessage = document.createElement("h2");
+    createLoadingMessage.className = "text-white text-center w-100";
+    createLoadingMessage.textContent = "Cargando...";
+    idSection.appendChild(createLoadingMessage);
+}
+
+function deleteMensaggeWaiting() {
+    const loadingMessage = categorySection.querySelector("h2");
+    loadingMessage.remove();
 }
 
 async function getCategorys() {
-    mensaggeWaiting()
+    createMensaggeWaiting(categorySection)
     const categoryArray = await categories();
     printCategory(categoryArray);
 }
 
+
 function printCategory(data){
-    const loadingMessage = categorySection.querySelector('h2');
-    loadingMessage.remove();
-    
+    deleteMensaggeWaiting()
     data.map((i) =>{
         const divCategory = document.createElement("div");
         divCategory.className = "col-md-4 pb-3";
@@ -45,9 +50,6 @@ function printCategory(data){
         categorySection.appendChild(divCategory);
     })
 }
-
-
-
 getCategorys();
 
 
