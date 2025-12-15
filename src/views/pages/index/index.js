@@ -22,8 +22,7 @@ function mensaggeWaiting() {
 async function getCategorys() {
     mensaggeWaiting()
     const categoryArray = await categories();
-    const first6Categories = categoryArray.slice(0, 6);
-    printCategory(first6Categories);
+    printCategory(categoryArray);
 }
 
 function printCategory(data){
