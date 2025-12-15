@@ -10,7 +10,6 @@ const lastProductsSection = document.createElement("section");
 //HTML inyection
 categorySection.className = "row justify-content-center g-3 h-100 w-100 py-5 px-5";
 heroSectionHTML.after(categorySection);  
-// Sección de últimos productos con padding horizontal para que no quede pegada a los bordes
 lastProductsSection.className = "row justify-content-center w-100 py-5 px-4 last-products";
 categorySection.after(lastProductsSection);
 
