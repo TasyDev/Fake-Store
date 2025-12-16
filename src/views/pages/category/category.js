@@ -1,4 +1,5 @@
 import { getDataByCategory } from "../../../data/api/getAll.js";
+import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from "../../layouts/response.js";
 
 function heroSection(data) {
     const title = document.getElementById("title-cover-category")
@@ -17,6 +18,7 @@ function heroSection(data) {
     
     // Manejo de error para el título: si no existe, no hacer cambios al DOM
     try {
+
         if (category && category.name) {
             title.textContent = category.name;
         }
@@ -26,17 +28,21 @@ function heroSection(data) {
 }
 
 async function getTheProductsByCategory(slug) {
+    const postsSection = document.getElementById("posts");
+    createMensaggeWaiting(postsSection);
     try {
         const productsArrays = await getDataByCategory(slug);
         heroSection(productsArrays)
         printProducts(productsArrays)
     } catch (error) {
-        console.log(error);
+        deleteMensaggeWaiting(postsSection);
+        createErrorMessage(postsSection, error);
     }
 }
 
 function printProducts(data) {
     const print = document.getElementById("posts");
+    deleteMensaggeWaiting(print);
     // Obtener el contenedor col-12 col-md-10 que ya existe en el HTML
     const container = print.querySelector(".col-12.col-md-10");
     
