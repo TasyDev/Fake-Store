@@ -61,7 +61,7 @@ function printProducts(data) {
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <a class="text-white">Comprar ahora</a>
                     <a>
-                        <img src="src/assets/icons/bag-add.svg" alt="Agregar al carrito" class="green-background rounded-3 px-3" style="width: 65px;">
+                        <img src="/src/assets/icons/bag-add.svg" alt="Agregar al carrito" class="green-background rounded-3 px-3" style="width: 65px;">
                     </a>
                 </div>
             </div>
