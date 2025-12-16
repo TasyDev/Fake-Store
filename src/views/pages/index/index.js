@@ -1,5 +1,6 @@
 import { categories } from "../../../data/api/getCategory.js";
 import { getData } from "../../../data/api/getAll.js";
+import { createMensaggeWaiting, createErrorMessage, deleteMensaggeWaiting } from "../../layouts/response.js";
 
 const heroSectionHTML = document.getElementById("hero");
 
@@ -11,27 +12,6 @@ const lastProductsSection = document.getElementById("posts");
 categorySection.classList.add("row", "justify-content-center", "g-3", "h-100", "w-100", "py-5", "px-5");
 lastProductsSection.classList.add("row", "justify-content-center", "w-100", "py-5", "px-4", "last-products");
 
-function createMensaggeWaiting(idSection) {
-    const createLoadingMessage = document.createElement("h2");
-    createLoadingMessage.className = "text-white text-center w-100 loading-message";
-    createLoadingMessage.textContent = "Cargando...";
-    idSection.appendChild(createLoadingMessage);
-}
-
-function createErrorMessage(idSection, error) {
-    const createError = document.createElement("h2");
-    createError.className = "text-danger text-center w-100";
-    createError.textContent = "Error";
-    idSection.appendChild(createError);
-    console.log(error);
-}
-
-function deleteMensaggeWaiting(idSection) {
-    const loadingMessage = idSection.querySelector(".loading-message");
-    if (loadingMessage) {
-        loadingMessage.remove();
-    }
-}
 
 async function getCategorys() {
     createMensaggeWaiting(categorySection)
