@@ -5,6 +5,9 @@ function heroSection(data) {
     const title = document.getElementById("title-cover-category")
     const img = document.getElementById("img-cover-category")
 
+    // Obtener la categoría del primer producto
+    const category = data[0].category;
+
     // Asignar la imagen de la categoría y manejo de error
     img.setAttribute("onerror", "this.onerror=null; this.src='/src/assets/img/Image-not-found.png';");
     img.src = category.image;
