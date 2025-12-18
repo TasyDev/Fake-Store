@@ -25,18 +25,19 @@ async function getCategorys() {
 }
 
 
-function printCategory(data){
+function printCategory(data) {
     deleteMensaggeWaiting(categorySection)
-    data.forEach((i) =>{
+    data.forEach((i) => {
         const divCategory = document.createElement("div");
         divCategory.className = "col-md-4 pb-3";
         divCategory.innerHTML = `
             <div class="black-background rounded-4 p-4 h-100">
-                <div class="d-flex justify-content-between align-items-start h-100">
-                    <div class="flex-grow-1 p-3">
+                <div class="d-flex justify-content-between h-100">
+                    <div class="flex-grow-1 p-3 d-flex flex-column justify-content-between align-items-start">
                         <h2 class="h2 text-white mb-3">${i.name}</h2>
+                        <a class="button-reset button-l text-white p-2 rounded-2 green-background mt-3" href="/src/views/pages/category/category.html?slug=${i.slug}">Ver todos</a>
                     </div>
-                    <img src="${i.image}" alt="${i.name}" class="flex-shrink-0 rounded-3" style="width:150px; height:150px; object-fit:cover;"
+                    <img src="${i.image}" alt="${i.name}" class="flex-shrink-0 rounded-3 align-self-start" style="width:150px; height:150px; object-fit:cover;"
                         onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
                 </div>
             </div>
@@ -56,7 +57,7 @@ async function get3Products() {
     }
 }
 
-function printProduts(data){
+function printProduts(data) {
     deleteMensaggeWaiting(lastProductsSection);
     const row = document.createElement("div");
     row.className = "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 col-12 col-md-10";
