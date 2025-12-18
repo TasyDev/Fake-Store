@@ -8,12 +8,8 @@ function heroSection(data) {
     // Obtener la categoría del primer producto
     const category = data[0].category;
 
-    // Manejo de error para la imagen: si no carga, mostrar imagen por defecto
-    img.onerror = () => {
-        img.src = "/src/assets/img/Image-not-found.png";
-    };
-
-    // Asignar la imagen de la categoría
+    // Asignar la imagen de la categoría y manejo de error
+    img.setAttribute("onerror", "this.onerror=null; this.src='src/assets/img/Image-not-found.png';");
     img.src = category.images;
 
     // Manejo de error para el título: si no existe, no hacer cambios al DOM
@@ -53,7 +49,8 @@ function printProducts(data) {
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
             <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
-                <img src="${i.imagen}" alt="${i.title}" class="img-fluid w-100 pb-2">
+                <img src="${i.imagen}" alt="${i.title}" class="img-fluid w-100 pb-2"
+                    onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
                 <h3 class="text-white">
                     ${i.title}
                 </h3> 
@@ -66,10 +63,6 @@ function printProducts(data) {
                 </div>
             </div>
         `;
-        const productImg = divProduct.querySelector("img");
-        productImg.onerror = () => {
-            productImg.src = "/src/assets/img/Image-not-found.png";
-        };
         row.appendChild(divProduct);
     });
 
