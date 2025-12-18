@@ -5,12 +5,9 @@ function heroSection(data) {
     const title = document.getElementById("title-cover-category")
     const img = document.getElementById("img-cover-category")
 
-    // Obtener la categoría del primer producto
-    const category = data[0].category;
-
     // Asignar la imagen de la categoría y manejo de error
-    img.setAttribute("onerror", "this.onerror=null; this.src='src/assets/img/Image-not-found.png';");
-    img.src = category.images;
+    img.setAttribute("onerror", "this.onerror=null; this.src='/src/assets/img/Image-not-found.png';");
+    img.src = category.image;
 
     // Manejo de error para el título: si no existe, no hacer cambios al DOM
     try {
@@ -49,8 +46,8 @@ function printProducts(data) {
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
             <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
-                <img src="${i.imagen}" alt="${i.title}" class="img-fluid w-100 pb-2"
-                    onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
+                <img src="${i.images[0]}" alt="${i.title}" class="img-fluid w-100 pb-2"
+                    onerror="this.onerror=null; this.src='/src/assets/img/Image-not-found.png';">
                 <h3 class="text-white">
                     ${i.title}
                 </h3> 
