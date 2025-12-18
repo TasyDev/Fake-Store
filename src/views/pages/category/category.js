@@ -4,18 +4,18 @@ import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from
 function heroSection(data) {
     const title = document.getElementById("title-cover-category")
     const img = document.getElementById("img-cover-category")
-    
+
     // Obtener la categoría del primer producto
     const category = data[0].category;
-    
+
     // Manejo de error para la imagen: si no carga, mostrar imagen por defecto
     img.onerror = () => {
         img.src = "/src/assets/img/Image-not-found.png";
     };
-    
+
     // Asignar la imagen de la categoría
     img.src = category.images;
-    
+
     // Manejo de error para el título: si no existe, no hacer cambios al DOM
     try {
 
@@ -45,7 +45,7 @@ function printProducts(data) {
     deleteMensaggeWaiting(print);
     // Obtener el contenedor col-12 col-md-10 que ya existe en el HTML
     const container = print.querySelector(".col-12.col-md-10");
-    
+
     const row = document.createElement("div");
     row.className = "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4";
     data.forEach((i) => {
@@ -76,4 +76,15 @@ function printProducts(data) {
     container.appendChild(row);
 }
 
-getTheProductsByCategory("electronics");
+function getSlugFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("slug");
+}
+
+const slug = getSlugFromURL();
+
+if (slug) {
+    getTheProductsByCategory(slug);
+} else {
+    console.error("No hay slug en la URL");
+}
