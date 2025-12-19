@@ -16,6 +16,8 @@ class Navbar extends HTMLElement {
         }
     }
 
+
+
     render() {
         this.innerHTML = `
         <div class="navbar-container sticky-top shadow-sm" style="z-index: 1060;">
@@ -86,7 +88,36 @@ class Navbar extends HTMLElement {
             </nav>
         </div>
         `;
+
+        const searchInput = this.querySelector("#nav-search");
+        const searchInputMobile = this.querySelector("#nav-search-mobile");
+
+        const handleSearch = (query) => {
+            if (query.trim()) {
+                window.location.href = `/src/views/pages/search/search.html?q=${encodeURIComponent(query.trim())}`;
+            }
+        };
+
+        if (searchInput) {
+            searchInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") handleSearch(e.target.value);
+            });
+        }
+        if (searchInputMobile) {
+            searchInputMobile.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") handleSearch(e.target.value);
+            });
+        }
+
+        this.querySelectorAll('label[for^="nav-search"]').forEach(label => {
+            label.addEventListener('click', () => {
+                const input = this.querySelector(`#${label.getAttribute('for')}`);
+                if (input) handleSearch(input.value);
+            });
+        });
     }
 }
+
+
 
 customElements.define('navbar-component', Navbar);
