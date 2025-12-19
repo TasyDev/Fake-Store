@@ -192,6 +192,97 @@ del {
 }
 
 /* Responsive base styles */
+
+/* Utility & Hover Classes */
+.hover-green-text {
+    transition: color 0.3s ease;
+}
+
+.hover-green-text:hover {
+    color: #1DE684 !important;
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.transition-all:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* Navbar Specific Styles - Compact Version */
+.navbar-top {
+    height: 60px;
+    /* Reduced from 80px */
+    border-bottom: 1px solid #2d333b;
+}
+
+.nav-search-input {
+    background-color: #f0f2f5 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    height: 36px;
+    /* Reduced from 48px */
+    font-size: 14px;
+    /* Reduced from 16px */
+}
+
+.nav-icon-circle {
+    width: 32px;
+    /* Reduced from 45px */
+    height: 32px;
+    /* Reduced from 45px */
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.green-action-btn {
+    background-color: #1DE684;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    height: 36px;
+    /* Reduced from 48px */
+    padding: 0 12px;
+    /* Reduced from 20px */
+    font-weight: 600;
+    font-size: 13px;
+    /* Smaller font */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.navbar-bottom {
+    background-color: #14161B;
+    border-bottom: 2px solid #000;
+    padding: 6px 0;
+    /* Compact padding */
+}
+
+.navbar-bottom .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 12px;
+    /* Reduced from 14px */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+}
+
+.navbar-bottom .nav-link:hover {
+    opacity: 1;
+    color: #1DE684 !important;
+}
+
+/* Base resets */
 * {
     margin: 0;
     padding: 0;
