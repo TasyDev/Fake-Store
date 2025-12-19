@@ -16,6 +16,8 @@ class Navbar extends HTMLElement {
         }
     }
 
+
+
     render() {
         this.innerHTML = `
         <div class="navbar-container sticky-top shadow-sm" style="z-index: 1060;">
@@ -53,14 +55,6 @@ class Navbar extends HTMLElement {
                     </div>
 
                     <div class="d-flex align-items-center gap-2">
-                        <button class="btn green-background text-black fw-bold btn-sm d-none d-lg-block px-3 py-1 transition-all hover-opacity">
-                            Iniciar Sesión
-                        </button>
-
-                        <a href="#" class="nav-icon-circle p-1" title="Iniciar Sesión">
-                            <img src="/src/assets/icons/carrito.png" alt="Iniciar Sesión" style="height: 18px; object-fit: contain;">
-                        </a>
-
                         <a href="#" class="nav-icon-circle p-1 d-none d-md-flex">
                             <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 18px; object-fit: contain;">
                         </a>
@@ -86,7 +80,36 @@ class Navbar extends HTMLElement {
             </nav>
         </div>
         `;
+
+        const searchInput = this.querySelector("#nav-search");
+        const searchInputMobile = this.querySelector("#nav-search-mobile");
+
+        const handleSearch = (query) => {
+            if (query.trim()) {
+                window.location.href = `/src/views/pages/search/search.html?q=${encodeURIComponent(query.trim())}`;
+            }
+        };
+
+        if (searchInput) {
+            searchInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") handleSearch(e.target.value);
+            });
+        }
+        if (searchInputMobile) {
+            searchInputMobile.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") handleSearch(e.target.value);
+            });
+        }
+
+        this.querySelectorAll('label[for^="nav-search"]').forEach(label => {
+            label.addEventListener('click', () => {
+                const input = this.querySelector(`#${label.getAttribute('for')}`);
+                if (input) handleSearch(input.value);
+            });
+        });
     }
 }
+
+
 
 customElements.define('navbar-component', Navbar);
