@@ -55,14 +55,6 @@ class Navbar extends HTMLElement {
                     </div>
 
                     <div class="d-flex align-items-center gap-2">
-                        <button class="btn green-background text-black fw-bold btn-sm d-none d-lg-block px-3 py-1 transition-all hover-opacity">
-                            Iniciar Sesión
-                        </button>
-
-                        <a href="#" class="nav-icon-circle p-1" title="Iniciar Sesión">
-                            <img src="/src/assets/icons/carrito.png" alt="Iniciar Sesión" style="height: 18px; object-fit: contain;">
-                        </a>
-
                         <a href="#" class="nav-icon-circle p-1 d-none d-md-flex">
                             <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 18px; object-fit: contain;">
                         </a>
