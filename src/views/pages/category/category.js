@@ -51,10 +51,11 @@ function printProducts(data) {
             <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
                 <img src="${i.images[0]}" alt="${i.title}" class="img-fluid w-100 pb-2"
                     onerror="this.onerror=null; this.src='/src/assets/img/Image-not-found.png';">
-                <h3 class="text-white">
+                <h3 class="text-white mb-1">
                     ${i.title}
                 </h3> 
-                <p class="text-white">${i.description}</p>
+                <p class="text-white fs-4 fw-bold mb-2">$${i.price}</p>
+                <p class="text-white opacity-75 small">${i.description}</p>
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <a class="text-white">Comprar ahora</a>
                     <a>
