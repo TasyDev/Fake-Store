@@ -23,13 +23,42 @@ function heroSection(data) {
     }
 }
 
+// Variable global para almacenar los productos y no tener que refetchear al filtrar
+let allProducts = [];
+
+function handleFilter() {
+    const filterInput = document.getElementById("filter-input");
+    if (!filterInput) return;
+
+    const filter = filterInput.value;
+    let sortedProducts = [...allProducts]; // Clonar el array para no mutar el original
+
+    if (filter === "Mayor") {
+        sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (filter === "Menor") {
+        sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (filter === "") {
+        sortedProducts = [...allProducts];
+    }
+
+    printProducts(sortedProducts);
+}
+
+// Agregar el event listener al select de filtrado
+document.addEventListener("DOMContentLoaded", () => {
+    const filterInput = document.getElementById("filter-input");
+    if (filterInput) {
+        filterInput.addEventListener("change", handleFilter);
+    }
+});
+
 async function getTheProductsByCategory(slug) {
     const postsSection = document.getElementById("posts");
     createMensaggeWaiting(postsSection);
     try {
-        const productsArrays = await getDataByCategory(slug);
-        heroSection(productsArrays)
-        printProducts(productsArrays)
+        allProducts = await getDataByCategory(slug);
+        heroSection(allProducts);
+        printProducts(allProducts);
     } catch (error) {
         deleteMensaggeWaiting(postsSection);
         createErrorMessage(postsSection, error);
@@ -42,8 +71,14 @@ function printProducts(data) {
     // Obtener el contenedor col-12 col-md-10 que ya existe en el HTML
     const container = print.querySelector(".col-12.col-md-10");
 
+    // Limpiar filas anteriores si existen (excepto el título y el input)
+    const existingRow = container.querySelector(".row-products");
+    if (existingRow) {
+        existingRow.remove();
+    }
+
     const row = document.createElement("div");
-    row.className = "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4";
+    row.className = "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 row-products";
     data.forEach((i) => {
         const divProduct = document.createElement("div");
         divProduct.className = "col d-flex";
