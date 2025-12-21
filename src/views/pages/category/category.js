@@ -83,7 +83,7 @@ function printProducts(data) {
         const divProduct = document.createElement("div");
         divProduct.className = "col d-flex";
         divProduct.innerHTML = `
-            <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100">
+            <div class="black-background p-4 p-md-5 rounded-4 w-100 h-100 product-card" data-id="${i.id}">
                 <img src="${i.images[0]}" alt="${i.title}" class="img-fluid w-100 pb-2"
                     onerror="this.onerror=null; this.src='/src/assets/img/Image-not-found.png';">
                 <h3 class="text-white mb-1">
@@ -93,9 +93,9 @@ function printProducts(data) {
                 <p class="text-white opacity-75 small">${i.description}</p>
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <a class="text-white">Comprar ahora</a>
-                    <a>
+                    <button class="add-to-cart-btn button-reset">
                         <img src="/src/assets/icons/bag-add.svg" alt="Agregar al carrito" class="green-background rounded-3 px-3" style="width: 65px;">
-                    </a>
+                    </button>
                 </div>
             </div>
         `;
