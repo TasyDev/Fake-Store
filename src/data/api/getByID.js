@@ -1,4 +1,4 @@
-export async function getDataById(slug) {
+export async function getDataBySlug(slug) {
     const res = await fetch(`https://api.escuelajs.co/api/v1/products/slug/${slug}`);
     if (!res.ok) throw new Error("Request failed");
     return await res.json();
