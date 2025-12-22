@@ -53,12 +53,15 @@ class Navbar extends HTMLElement {
         });
 
         const storeButton = this.querySelector("#store-card");
-        if (storeButton) {
-            storeButton.addEventListener('click', () => {
-                this.isCartOpen = !this.isCartOpen;
-                this.renderCart();
-            });
-        }
+        const storeButtonMobile = this.querySelector("#store-card-mobile");
+
+        const toggleCart = () => {
+            this.isCartOpen = !this.isCartOpen;
+            this.renderCart();
+        };
+
+        if (storeButton) storeButton.addEventListener('click', toggleCart);
+        if (storeButtonMobile) storeButtonMobile.addEventListener('click', toggleCart);
 
         // Global click listener for adding to cart
         document.addEventListener("click", (e) => {
@@ -109,10 +112,12 @@ class Navbar extends HTMLElement {
         document.addEventListener('click', (e) => {
             const container = document.getElementById("cart-products");
             const storeButton = document.getElementById("store-card");
+            const storeButtonMobile = document.getElementById("store-card-mobile");
             const addToCartBtn = e.target.closest(".add-to-cart-btn");
 
-            // If the click is on the store button, it's handled by its own listener
+            // If the click is on the store buttons, it's handled by its own listener
             if (storeButton && storeButton.contains(e.target)) return;
+            if (storeButtonMobile && storeButtonMobile.contains(e.target)) return;
 
             // If clicking on an "add to cart" button, we already handled opening it
             if (addToCartBtn) return;
@@ -135,8 +140,29 @@ class Navbar extends HTMLElement {
     render() {
         this.innerHTML = `
         <div class="navbar-container sticky-top shadow-sm" style="z-index: 1060;">
-            <nav class="navbar navbar-dark black-background d-md-none px-3 pt-2">
-                <div class="d-flex w-100 gap-2">
+            <!-- Mobile/Tablet Navbar (Logo, Hamburger, Cart) -->
+            <nav class="navbar navbar-dark black-background d-md-none px-3 py-2 navbar-mobile-top">
+                <div class="d-flex align-items-center justify-content-between nav-row-1">
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesMenu" aria-controls="categoriesMenu" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon" style="width: 24px; height: 24px;"></span>
+                        </button>
+                        <a href="/" class="d-flex align-items-center">
+                            <img src="/src/assets/logos/Icon-Platzi-Black.svg" alt="Platzi Logo" class="green-background rounded-1" style="height: 24px; padding: 2px;">
+                        </a>
+                    </div>
+
+                    <div>
+                        <button id="store-card-mobile" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 32px; height: 32px;">
+                            <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 16px; width: 16px; object-fit: contain;">
+                            <span class="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 8px; display: none;">
+                                0
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Search Row on Mobile -->
+                <div class="d-flex gap-2 nav-row-2">
                     <label for="nav-search-mobile" class="green-action-btn transition-all mb-0 px-2" style="cursor: pointer; height: 32px; font-size: 12px;">
                         <span>Buscar</span>
                     </label>
@@ -146,19 +172,16 @@ class Navbar extends HTMLElement {
                 </div>
             </nav>
 
-            <nav class="navbar navbar-dark navbar-top black-background px-2 px-md-4 py-1">
+            <!-- Desktop Navbar -->
+            <nav class="navbar navbar-dark navbar-top black-background d-none d-md-flex px-4 py-1">
                 <div class="d-flex align-items-center justify-content-between h-100 mx-auto w-100" style="max-width: 1200px;">
                     
-                    <div class="d-flex align-items-center gap-3">
-                        <button class="navbar-toggler border-0 p-0 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesMenu" aria-controls="categoriesMenu" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon" style="width: 24px; height: 24px;"></span>
-                        </button>
-
-                        <a href="/" class="d-none d-md-flex align-items-center">
+                    <div class="d-flex align-items-center gap-4">
+                        <a href="/" class="d-flex align-items-center">
                             <img src="/src/assets/logos/greenlogo.png" alt="Platzi Logo" style="height: 32px;">
                         </a>
 
-                        <div class="d-none d-md-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2">
                             <label for="nav-search" class="green-action-btn transition-all mb-0" style="cursor: pointer;">
                                 <span>Buscar</span>
                             </label>
@@ -171,7 +194,7 @@ class Navbar extends HTMLElement {
                     <div>
                         <button id="store-card" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 38px; height: 38px;">
                             <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 20px; width: 20px; object-fit: contain;">
-                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px; display: none;">
+                            <span class="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px; display: none;">
                                 0
                             </span>
                         </button>
@@ -179,9 +202,10 @@ class Navbar extends HTMLElement {
                 </div>
             </nav>
 
+            <!-- Categories Bottom Bar -->
             <nav class="navbar navbar-expand-md navbar-dark navbar-bottom py-1">
                 <div class="collapse navbar-collapse" id="categoriesMenu">
-                    <ul class="navbar-nav justify-content-center gap-4 m-0 p-0 w-100 text-center">
+                    <ul class="navbar-nav justify-content-center gap-3 gap-md-4 m-0 p-0 w-100 text-center py-2 py-md-0">
                         <li class="nav-item">
                             <a href="/" class="nav-link">Inicio</a>
                         </li>
@@ -204,20 +228,20 @@ class Navbar extends HTMLElement {
     renderCart() {
         const cart = CartManager.getCart();
         const container = document.getElementById("cart-products");
-        const cartCount = document.getElementById("cart-count");
+        const cartCountBadges = document.querySelectorAll(".cart-count-badge");
 
         if (!container) return;
 
-        // Update badge
-        if (cartCount) {
-            const totalItems = cart.reduce((acc, p) => acc + p.quantity, 0);
+        // Update badges
+        const totalItems = cart.reduce((acc, p) => acc + p.quantity, 0);
+        cartCountBadges.forEach(badge => {
             if (totalItems > 0) {
-                cartCount.textContent = totalItems;
-                cartCount.style.display = "block";
+                badge.textContent = totalItems;
+                badge.style.display = "block";
             } else {
-                cartCount.style.display = "none";
+                badge.style.display = "none";
             }
-        }
+        });
 
         if (!this.isCartOpen) {
             container.style.display = "none";

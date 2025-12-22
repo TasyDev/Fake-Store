@@ -18,7 +18,7 @@ function renderProducts(data) {
         <div class="d-flex align-items-center mb-4 p-3 black-background rounded-4 text-white border border-secondary border-opacity-25">
             <img src="${item.img}" alt="${item.title}" class="rounded-3 me-3" style="width: 100px; height: 100px; object-fit: cover;">
             <div class="flex-grow-1">
-                <h3 class="h5 mb-1 text-truncate" style="max-width: 250px;">${item.title}</h3>
+                <h3 class="h5 mb-1 text-truncate">${item.title}</h3>
                 <p class="mb-0 fs-5 fw-bold green-pp">$${item.price}</p>
             </div>
             <div class="d-flex flex-column align-items-end gap-2">
@@ -45,7 +45,7 @@ function renderProducts(data) {
                 <div class="mb-4">
                     ${data.map(item => `
                         <div class="d-flex justify-content-between mb-2 opacity-75 small font-monospace">
-                            <span class="text-truncate me-2" style="max-width: 150px;">${item.title}</span>
+                            <span class="text-truncate me-2">${item.title}</span>
                             <span>${item.quantity || 1}</span>
                             <span>$${(item.price * (item.quantity || 1)).toFixed(2)}</span>
                         </div>
