@@ -408,29 +408,6 @@ del {
     padding: 2rem 1.5rem !important;
 }
 
-@media (max-width: 768px) {
-    #products-list .d-flex {
-        flex-direction: column;
-        align-items: flex-start !important;
-        text-align: left;
-    }
-
-    #products-list img {
-        width: 100% !important;
-        height: 200px !important;
-        margin-bottom: 1rem;
-        margin-right: 0 !important;
-    }
-
-    #products-list .d-flex.flex-column.align-items-end {
-        align-items: flex-start !important;
-        width: 100%;
-        margin-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 1rem;
-    }
-}
-
 .cart-count-badge {
     padding: 2px 5px;
     min-width: 16px;

@@ -15,20 +15,24 @@ function renderProducts(data) {
 
     data.forEach(item => {
         const insertHTML = `
-        <div class="d-flex align-items-center mb-4 p-3 black-background rounded-4 text-white border border-secondary border-opacity-25">
-            <img src="${item.img}" alt="${item.title}" class="rounded-3 me-3" style="width: 100px; height: 100px; object-fit: cover;">
-            <div class="flex-grow-1">
-                <h3 class="h5 mb-1 text-truncate">${item.title}</h3>
-                <p class="mb-0 fs-5 fw-bold green-pp">$${item.price}</p>
-            </div>
-            <div class="d-flex flex-column align-items-end gap-2">
-                <div class="d-flex align-items-center gap-3 bg-secondary bg-opacity-25 rounded-pill px-3 py-1">
+        <div class="d-flex align-items-start mb-4 p-3 black-background rounded-4 text-white border border-secondary border-opacity-25 gap-2 gap-md-3">
+            <img src="${item.img}" alt="${item.title}" class="rounded-3" style="width: 80px; height: 80px; object-fit: cover; flex-shrink: 0;">
+            
+            <div class="flex-grow-1 min-w-0">
+                <h3 class="h6 mb-1 fw-bold text-wrap" style="font-size: 0.95rem;">${item.title}</h3>
+                <p class="mb-2 fs-6 fw-bold green-pp">$${item.price}</p>
+                
+                <div class="d-flex align-items-center gap-3 bg-secondary bg-opacity-25 rounded-pill px-3 py-1 w-fit-content" style="width: fit-content;">
                     <button class="button-reset text-white minus-btn fs-5" data-id="${item.id}">-</button>
                     <span class="fw-bold" style="min-width: 20px; text-align: center;">${item.quantity || 1}</span>
                     <button class="button-reset text-white plus-btn fs-5" data-id="${item.id}">+</button>
                 </div>
-                <button class="btn btn-link btn-sm text-danger text-decoration-none remove-btn p-0" data-id="${item.id}">
-                    Eliminar
+            </div>
+
+            <div class="d-flex align-items-center h-100">
+                <button class="btn btn-link btn-sm text-danger text-decoration-none remove-btn p-1" data-id="${item.id}">
+                    <i class="bi bi-trash3 fs-5"></i>
+                    <span class="d-none d-md-inline ms-1">Eliminar</span>
                 </button>
             </div>
         </div>
