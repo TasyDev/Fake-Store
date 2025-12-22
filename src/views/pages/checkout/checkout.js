@@ -28,7 +28,7 @@ function renderProducts(data) {
                     <button class="button-reset text-white plus-btn fs-5" data-id="${item.id}">+</button>
                 </div>
                 <button class="btn btn-link btn-sm text-danger text-decoration-none remove-btn p-0" data-id="${item.id}">
-                    <i class="bi bi-trash me-1"></i>Eliminar
+                    Eliminar
                 </button>
             </div>
         </div>
