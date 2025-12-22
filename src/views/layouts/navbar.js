@@ -168,9 +168,9 @@ class Navbar extends HTMLElement {
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-center gap-2">
-                        <button id="store-card" class="nav-icon-circle p-1 d-none d-md-flex position-relative">
-                            <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 18px; object-fit: contain;">
+                    <div>
+                        <button id="store-card" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 38px; height: 38px;">
+                            <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 20px; width: 20px; object-fit: contain;">
                             <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px; display: none;">
                                 0
                             </span>
@@ -226,36 +226,36 @@ class Navbar extends HTMLElement {
 
         container.style.display = "block";
         container.innerHTML = `
-            <div class="p-3">
-                <h5 class="mb-3 border-bottom pb-2">Tu Carrito</h5>
-                ${cart.length === 0 ? '<p class="text-muted text-center py-4">El carrito está vacío</p>' : `
+            <div class="p-3 black-background rounded-3">
+                <h5 class="text-white">Tu Carrito</h5>
+                ${cart.length === 0 ? '<p class="text-white text-center py-4">El carrito está vacío</p>' : `
                     <div class="cart-items-list" style="max-height: 400px; overflow-y: auto;">
                         ${cart.map(p => `
                             <div class="d-flex align-items-center mb-3 gap-3 border-bottom pb-2">
                                 <img src="${p.img}" alt="${p.title}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-0 small fw-bold">${p.title}</h6>
+                                    <h6 class="text-white mb-0 small fw-bold">${p.title}</h6>
                                     <div class="d-flex justify-content-between align-items-center mt-1">
-                                        <span class="text-success fw-bold">$${p.price}</span>
+                                        <span class="text-white fw-bold">$${p.price}</span>
                                         <div class="d-flex align-items-center gap-2">
                                             <button class="btn btn-sm btn-outline-secondary py-0 px-2 minus-btn" data-id="${p.id}">-</button>
-                                            <span class="small">${p.quantity}</span>
+                                            <span class="text-white">${p.quantity}</span>
                                             <button class="btn btn-sm btn-outline-secondary py-0 px-2 plus-btn" data-id="${p.id}">+</button>
                                         </div>
                                     </div>
                                 </div>
                                 <button class="btn btn-sm text-danger remove-btn" data-id="${p.id}">
-                                    <i class="bi bi-trash"></i>Eliminar
+                                    <i></i>Eliminar
                                 </button>
                             </div>
                         `).join('')}
                     </div>
                     <div class="mt-3 d-grid">
-                        <div class="d-flex justify-content-between mb-3 fw-bold">
+                        <div class="d-flex justify-content-between mb-3 fw-bold text-white">
                             <span>Total:</span>
                             <span>$${cart.reduce((acc, p) => acc + (parseFloat(p.price) * p.quantity), 0).toFixed(2)}</span>
                         </div>
-                        <a href="/checkout" class="btn btn-success">Ir a la pasarela</a>
+                        <a href="/checkout" class="green-background p-2 rounded-2 text-white link-reset text-center">Ir a la pasarela</a>
                     </div>
                 `}
             </div>

@@ -282,6 +282,11 @@ del {
     color: #1DE684 !important;
 }
 
+.link-reset {
+    text-decoration: none !important;
+    color: inherit;
+}
+
 /* Cart Dropdown */
 .cart-dropdown {
     position: absolute;
