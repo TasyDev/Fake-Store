@@ -255,7 +255,7 @@ class Navbar extends HTMLElement {
                             <span>Total:</span>
                             <span>$${cart.reduce((acc, p) => acc + (parseFloat(p.price) * p.quantity), 0).toFixed(2)}</span>
                         </div>
-                        <a href="/checkout" class="green-background p-2 rounded-2 text-white link-reset text-center">Ir a la pasarela</a>
+                        <a href="/src/views/pages/checkout/checkout.html" class="green-background p-2 rounded-2 text-white link-reset text-center">Ir a la pasarela</a>
                     </div>
                 `}
             </div>
