@@ -74,7 +74,7 @@ function printProduts(data) {
                 <p class="text-white fs-4 fw-bold mb-2">$${i.price}</p>
                 <p class="text-white opacity-75 small">${i.description}</p>
                 <div class="d-flex justify-content-between align-items-center mt-3">
-                    <a class="text-white">Comprar ahora</a>
+                    <a class="text-white buy-now-btn" style="cursor: pointer;">Comprar ahora</a>
                     <button class="add-to-cart-btn button-reset">
                         <img src="src/assets/icons/bag-add.svg" alt="Agregar al carrito" class="green-background rounded-3 px-3" style="width: 65px;">
                     </button>

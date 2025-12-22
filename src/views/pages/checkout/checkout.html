@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Store - Search</title>
+    <title>Checkout - Fake Store</title>
     <!-- CSS -->
     <link rel="stylesheet" href="/index.css">
     <!-- Bootstrap -->
@@ -16,30 +16,28 @@
 
 <body class="h-100">
     <navbar-component></navbar-component>
-
     <main class="container-fluid min-vh-100 justify-content-center gray-background">
-        <section class="row justify-content-center h-100 w-100 py-5" id="hero">
-            <div class="col-md-7 black-background p-5 rounded-4">
+        <section class="row justify-content-center w-100 py-5" id="checkout-section">
+            <div class="col-md-10 black-background p-5 rounded-4 mb-5">
+                <h1 class="h1 text-white">Finalizar Compra</h1>
+            </div>
+
+            <div class="col-md-10" id="checkout-container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h1 id="search-title" class="h1 text-white text-center">Resultados de búsqueda</h1>
+                    <div class="col-md-8" id="products-list">
+                        <!-- Los productos se cargarán aquí -->
+                    </div>
+                    <div class="col-md-4" id="checkout-summary">
+                        <!-- El resumen se cargará aquí -->
                     </div>
                 </div>
             </div>
         </section>
-        <section id="results">
-            <div class="row justify-content-center w-100">
-                <div class="col-12 col-md-10">
-                    <h2 class="text-white pb-4">Productos</h2>
-                </div>
-            </div>
-        </section>
     </main>
-
     <!-- JavaScript -->
-    <script type="module" src="/src/utils/buyNow.js"></script>
     <script type="module" src="/src/views/layouts/navbar.js"></script>
-    <script type="module" src="search.js"></script>
+    <script type="module" src="checkout.js"></script>
+    <script type="module" src="/src/features/store/store.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
