@@ -1,8 +1,15 @@
-import { categories } from "../../../data/api/getCategory.js";
-import { getData } from "../../../data/api/getAll.js";
-import { createMensaggeWaiting, createErrorMessage, deleteMensaggeWaiting } from "../../layouts/response.js";
+import { categories } from "@data/api/getCategory.js";
+import { getData } from "@data/api/getAll.js";
+import { createMensaggeWaiting, createErrorMessage, deleteMensaggeWaiting } from "@layouts/response.js";
+import { HtmlPrint } from "@utils/htmlPrint.js";
+import imageNotFound from "@assets/img/Image-not-found.png";
+import platziBlackLogo from "@assets/logos/Icon-Platzi-Black.svg";
 
 const heroSectionHTML = document.getElementById("hero");
+if (heroSectionHTML) {
+    const heroLogo = heroSectionHTML.querySelector("#hero-logo");
+    if (heroLogo) heroLogo.src = platziBlackLogo;
+}
 
 //Gobal variables
 const categorySection = document.getElementById("categorys");
@@ -38,7 +45,7 @@ function printCategory(data) {
                         <a class="button-reset button-s text-white p-2 rounded-2 green-background mt-2" href="/src/views/pages/category/category.html?slug=${i.slug}">Ver todos</a>
                     </div>
                     <img src="${i.image}" alt="${i.name}" class="category-card-img rounded-3 align-self-center"
-                        onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
+                        onerror="this.onerror=null; this.src='${imageNotFound}';">
                 </div>
             </div>
         `;
@@ -62,26 +69,8 @@ function printProduts(data) {
     const row = document.createElement("div");
     row.className = "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 col-12 col-md-11 col-lg-10";
     data.forEach((i) => {
-        const divProduct = document.createElement("div");
-        divProduct.className = "col d-flex";
-        divProduct.innerHTML = `
-            <div class="black-background p-3 p-md-4 rounded-4 w-100 h-100 product-card" data-id="${i.id}">
-                <img src="${i.images[0]}" alt="${i.title}" class="img-fluid w-100 pb-2"
-                    onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
-                <h3 class="text-white mb-1">
-                    ${i.title}
-                </h3> 
-                <p class="text-white fs-4 fw-bold mb-2">$${i.price}</p>
-                <p class="text-white opacity-75 small">${i.description}</p>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <a class="text-white buy-now-btn" style="cursor: pointer;">Comprar ahora</a>
-                    <button class="add-to-cart-btn button-reset">
-                        <img src="src/assets/icons/bag-add.svg" alt="Agregar al carrito" class="green-background rounded-3 px-3" style="width: 65px;">
-                    </button>
-                </div>
-            </div>
-        `;
-        row.appendChild(divProduct);
+        const productHTML = new HtmlPrint(i);
+        row.appendChild(productHTML.render());
     });
 
     lastProductsSection.appendChild(row);

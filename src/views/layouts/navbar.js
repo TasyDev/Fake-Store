@@ -1,5 +1,8 @@
-import { categories } from "../../data/api/getCategory.js";
-import { CartManager } from "../../utils/cartManager.js";
+import { categories } from "@data/api/getCategory.js";
+import { CartManager } from "@utils/cartManager.js";
+import platziBlackLogo from "@assets/logos/Icon-Platzi-Black.svg";
+import carritoIcon from "@assets/icons/carrito.png";
+import greenLogo from "@assets/logos/greenlogo.png";
 
 class Navbar extends HTMLElement {
     constructor() {
@@ -148,13 +151,13 @@ class Navbar extends HTMLElement {
                             <span class="navbar-toggler-icon" style="width: 24px; height: 24px;"></span>
                         </button>
                         <a href="/" class="d-flex align-items-center">
-                            <img src="/src/assets/logos/Icon-Platzi-Black.svg" alt="Platzi Logo" class="green-background rounded-1" style="height: 24px; padding: 2px;">
+                            <img src="${platziBlackLogo}" alt="Platzi Logo" class="green-background rounded-1" style="height: 24px; padding: 2px;">
                         </a>
                     </div>
 
                     <div>
                         <button id="store-card-mobile" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 32px; height: 32px;">
-                            <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 16px; width: 16px; object-fit: contain;">
+                            <img src="${carritoIcon}" alt="Carrito" style="height: 16px; width: 16px; object-fit: contain;">
                             <span class="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 8px; display: none;">
                                 0
                             </span>
@@ -178,7 +181,7 @@ class Navbar extends HTMLElement {
                     
                     <div class="d-flex align-items-center gap-4">
                         <a href="/" class="d-flex align-items-center">
-                            <img src="/src/assets/logos/greenlogo.png" alt="Platzi Logo" style="height: 32px;">
+                            <img src="${greenLogo}" alt="Platzi Logo" style="height: 32px;">
                         </a>
 
                         <div class="d-flex align-items-center gap-2">
@@ -193,7 +196,7 @@ class Navbar extends HTMLElement {
 
                     <div>
                         <button id="store-card" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 38px; height: 38px;">
-                            <img src="/src/assets/icons/carrito.png" alt="Carrito" style="height: 20px; width: 20px; object-fit: contain;">
+                            <img src="${carritoIcon}" alt="Carrito" style="height: 20px; width: 20px; object-fit: contain;">
                             <span class="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px; display: none;">
                                 0
                             </span>
