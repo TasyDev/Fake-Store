@@ -2,8 +2,14 @@ import { categories } from "@data/api/getCategory.js";
 import { getData } from "@data/api/getAll.js";
 import { createMensaggeWaiting, createErrorMessage, deleteMensaggeWaiting } from "@layouts/response.js";
 import { HtmlPrint } from "@utils/htmlPrint.js";
+import imageNotFound from "@assets/img/Image-not-found.png";
+import platziBlackLogo from "@assets/logos/Icon-Platzi-Black.svg";
 
 const heroSectionHTML = document.getElementById("hero");
+if (heroSectionHTML) {
+    const heroLogo = heroSectionHTML.querySelector("#hero-logo");
+    if (heroLogo) heroLogo.src = platziBlackLogo;
+}
 
 //Gobal variables
 const categorySection = document.getElementById("categorys");
@@ -39,7 +45,7 @@ function printCategory(data) {
                         <a class="button-reset button-s text-white p-2 rounded-2 green-background mt-2" href="/src/views/pages/category/category.html?slug=${i.slug}">Ver todos</a>
                     </div>
                     <img src="${i.image}" alt="${i.name}" class="category-card-img rounded-3 align-self-center"
-                        onerror="this.onerror=null; this.src='src/assets/img/Image-not-found.png';">
+                        onerror="this.onerror=null; this.src='${imageNotFound}';">
                 </div>
             </div>
         `;

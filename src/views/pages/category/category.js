@@ -1,6 +1,10 @@
 import { getDataByCategory } from "@data/api/getAll.js";
 import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from "@layouts/response.js";
 import { HtmlPrint } from "@utils/htmlPrint.js";
+import imageNotFound from "@assets/img/Image-not-found.png";
+
+const initialImg = document.getElementById("img-cover-category");
+if (initialImg) initialImg.src = imageNotFound;
 
 function heroSection(data) {
     const title = document.getElementById("title-cover-category")
@@ -10,7 +14,7 @@ function heroSection(data) {
     const category = data[0].category;
 
     // Asignar la imagen de la categoría y manejo de error
-    img.setAttribute("onerror", "this.onerror=null; this.src='/src/assets/img/Image-not-found.png';");
+    img.setAttribute("onerror", `this.onerror=null; this.src='${imageNotFound}';`);
     img.src = category.image;
 
     // Manejo de error para el título: si no existe, no hacer cambios al DOM

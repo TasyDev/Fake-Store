@@ -383,8 +383,8 @@ del {
 /* Navbar mobile specific ordering and layout */
 /* Navbar mobile specific ordering and layout */
 .navbar-mobile-top {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     gap: 10px !important;
 }
 
