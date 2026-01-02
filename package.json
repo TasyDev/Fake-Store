@@ -1,0 +1,27 @@
+{
+  "name": "fake-store",
+  "version": "2.2.0",
+  "description": "Fake store is a project that uses the Platzi API (https://fakeapi.platzi.com/ ) to create a web store using vanilla JavaScript, HTML, and Bootstrap. The focus of this project is to build a website with proper HTTP protocols, async functions, and an OOP. And see the figma here: https://n9.cl/a28ur",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TasyDev/Fake-Store"
+  },
+  "keywords": ["Vanilla"],
+  "author": "TasyDev <tamayocontat@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TasyDev/Fake-Store/issues"
+  },
+  "homepage": "https://github.com/TasyDev/Fake-Store#readme",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
