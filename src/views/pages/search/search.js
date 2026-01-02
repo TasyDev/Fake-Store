@@ -1,6 +1,6 @@
-import { getDataBySearch } from "../../../data/api/getByID.js";
-import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from "../../layouts/response.js";
-import {HtmlPrint} from "../../../utils/htmlPrint.js";
+import { getDataBySearch } from "@data/api/getByID.js";
+import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from "@layouts/response.js";
+import { HtmlPrint } from "@utils/htmlPrint.js";
 
 async function getTheProductsBySearch(title) {
     const resultsSection = document.getElementById("results");

@@ -1,5 +1,5 @@
-import { categories } from "../../data/api/getCategory.js";
-import { CartManager } from "../../utils/cartManager.js";
+import { categories } from "@data/api/getCategory.js";
+import { CartManager } from "@utils/cartManager.js";
 
 class Navbar extends HTMLElement {
     constructor() {

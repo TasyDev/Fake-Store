@@ -1,4 +1,4 @@
-import { CartManager } from "../../../utils/cartManager.js";
+import { CartManager } from "@utils/cartManager.js";
 
 function renderProducts(data) {
     const productsPrint = document.getElementById('products-list');

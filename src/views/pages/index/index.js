@@ -1,7 +1,7 @@
-import { categories } from "../../../data/api/getCategory.js";
-import { getData } from "../../../data/api/getAll.js";
-import { createMensaggeWaiting, createErrorMessage, deleteMensaggeWaiting } from "../../layouts/response.js";
-import {HtmlPrint} from "../../../utils/htmlPrint.js";
+import { categories } from "@data/api/getCategory.js";
+import { getData } from "@data/api/getAll.js";
+import { createMensaggeWaiting, createErrorMessage, deleteMensaggeWaiting } from "@layouts/response.js";
+import { HtmlPrint } from "@utils/htmlPrint.js";
 
 const heroSectionHTML = document.getElementById("hero");
 

@@ -1,6 +1,6 @@
-import { getDataByCategory } from "../../../data/api/getAll.js";
-import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from "../../layouts/response.js";
-import {HtmlPrint} from "../../../utils/htmlPrint.js";
+import { getDataByCategory } from "@data/api/getAll.js";
+import { createErrorMessage, createMensaggeWaiting, deleteMensaggeWaiting } from "@layouts/response.js";
+import { HtmlPrint } from "@utils/htmlPrint.js";
 
 function heroSection(data) {
     const title = document.getElementById("title-cover-category")
