@@ -1,0 +1,1 @@
+async function e(){const t=await fetch("https://api.escuelajs.co/api/v1/products/?&limit=3&offset=3");if(!t.ok)throw new Error("Request failed");return await t.json()}async function s(t){const a=await fetch(`https://api.escuelajs.co/api/v1/products/?categorySlug=${t}`);if(!a.ok)throw new Error("Request failed");return await a.json()}export{s as a,e as g};
