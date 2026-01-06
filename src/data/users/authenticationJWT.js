@@ -16,7 +16,7 @@ async function authenticationJWT(email, password) {
         return data;
 
     } catch (err) {
-        console.error(err);
+        console.error('Request failed:', err.message);
         return null;
     }
 }
