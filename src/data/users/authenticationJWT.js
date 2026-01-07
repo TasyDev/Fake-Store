@@ -1,18 +1,18 @@
-async function authenticationJWT(email, password) {
+export async function authenticationJWT(email, password) {
     try {
         const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
 
+        const data = await res.json();
+
         if (!res.ok) {
-            throw new Error('Login failed');
+            console.log('Login response:', data);
+            return null;
         }
 
-        const data = await res.json();
         return data;
 
     } catch (err) {
