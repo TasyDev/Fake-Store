@@ -25,6 +25,8 @@ export default defineConfig({
                 category: path.resolve(__dirname, 'src/views/pages/category/category.html'),
                 checkout: path.resolve(__dirname, 'src/views/pages/checkout/checkout.html'),
                 search: path.resolve(__dirname, 'src/views/pages/search/search.html'),
+                profile: path.resolve(__dirname, 'src/views/users/profile/profile.html'),
+                login: path.resolve(__dirname, 'src/views/users/login/login.html'),
                 notFound: path.resolve(__dirname, '404.html'),
             }
         }
