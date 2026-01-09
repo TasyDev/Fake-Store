@@ -1,4 +1,3 @@
-let showingFirst = true;
 const box2 = document.getElementById("box2");
 const box1 = document.getElementById("box1");
 const btnLogin = document.getElementById("btn-login");
