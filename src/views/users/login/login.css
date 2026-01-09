@@ -1,0 +1,132 @@
+/* Main container */
+body {
+    margin: 0;
+    padding: 0;
+    /* Uses default font from index.css */
+}
+
+main {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Logo and Header */
+.header-container {
+    text-align: left;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.header-container img {
+    width: 180px;
+    margin-bottom: 1.5rem;
+}
+
+/* Toggle Switch */
+.toggle-container {
+    border-radius: 8px;
+    padding: 4px;
+    display: flex;
+    width: 100%;
+}
+
+.toggle-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: #1E2229;
+    /* Explicitly matching .gray-background for active state toggle */
+    font-weight: 700;
+}
+
+/* Form Card */
+.form-card {
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+}
+
+.container-relative {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Inputs */
+.custom-input {
+    background-color: #b0b3b8 !important;
+    /* Visual requirement from image */
+    border: none !important;
+    border-radius: 6px !important;
+    height: 42px;
+    color: #14161C !important;
+    font-weight: 500;
+    padding: 10px 15px;
+}
+
+.custom-input:focus {
+    background-color: #c0c3c8 !important;
+    box-shadow: 0 0 0 2px rgba(29, 230, 132, 0.5) !important;
+    outline: none;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #1DE684 !important;
+    /* Default green from index.css */
+    color: #14161C !important;
+    /* Default black from index.css */
+    border: none !important;
+    padding: 10px 40px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(29, 230, 132, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Box Animations */
+.box {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.box.active {
+    position: relative;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.box.right {
+    transform: translateX(100%);
+}
+
+.box.left {
+    transform: translateX(-100%);
+}
