@@ -155,13 +155,16 @@ class Navbar extends HTMLElement {
                         </a>
                     </div>
 
-                    <div>
+                    <div class="d-flex align-items-center gap-2">
                         <button id="store-card-mobile" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 32px; height: 32px;">
                             <img src="${carritoIcon}" alt="Carrito" style="height: 16px; width: 16px; object-fit: contain;">
                             <span class="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 8px; display: none;">
                                 0
                             </span>
                         </button>
+                        <a href="/src/views/users/login/login.html" class="button-reset d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 32px; height: 32px; text-decoration: none; color: white;">
+                            <i class="bi bi-person-fill" style="font-size: 16px;"></i>
+                        </a>
                     </div>
                 </div>
                 <!-- Search Row on Mobile -->
@@ -194,13 +197,16 @@ class Navbar extends HTMLElement {
                         </div>
                     </div>
 
-                    <div>
+                    <div class="d-flex align-items-center gap-2">
                         <button id="store-card" class="button-reset position-relative d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 38px; height: 38px;">
                             <img src="${carritoIcon}" alt="Carrito" style="height: 20px; width: 20px; object-fit: contain;">
                             <span class="cart-count-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px; display: none;">
                                 0
                             </span>
                         </button>
+                        <a href="/src/views/users/login/login.html" class="button-reset d-flex align-items-center justify-content-center border border-white rounded-circle" style="width: 38px; height: 38px; text-decoration: none; color: white;">
+                            <i class="bi bi-person-fill" style="font-size: 20px;"></i>
+                        </a>
                     </div>
                 </div>
             </nav>
