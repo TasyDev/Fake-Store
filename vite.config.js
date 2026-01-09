@@ -1,5 +1,11 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import { defineConfig } from 'vite'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+// Convierte la URL a un path
+const __filename = fileURLToPath(import.meta.url)
+// Usa el path
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
     resolve: {
@@ -26,4 +32,4 @@ export default defineConfig({
     server: {
         open: true,
     }
-});
+})
