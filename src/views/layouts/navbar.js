@@ -1,8 +1,8 @@
-import { categories } from "/src/data/api/getCategory.js";
-import { CartManager } from "/src/utils/cartManager.js";
-import platziBlackLogo from "/src/assets/logos/Icon-Platzi-Black.svg";
-import carritoIcon from "/src/assets/icons/carrito.png";
-import greenLogo from "/src/assets/logos/greenlogo.png";
+import { categories } from "@data/api/getCategory.js";
+import { CartManager } from "@utils/cartManager.js";
+import platziBlackLogo from "@assets/logos/Icon-Platzi-Black.svg";
+import carritoIcon from "@assets/icons/carrito.png";
+import greenLogo from "@assets/logos/greenlogo.png";
 
 class Navbar extends HTMLElement {
     constructor() {
