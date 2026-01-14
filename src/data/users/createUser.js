@@ -15,7 +15,7 @@ async function newUser(name, email, password) {
             name,
             email,
             password,
-            avatar: 'https://picsum.photos/800'
+            avatar: "https://picsum.photos/800"
         })
     })
     const data = await res.json()
@@ -23,5 +23,5 @@ async function newUser(name, email, password) {
         console.error(data)
         throw new Error('Error creating user')
     }
-    return data
+    return console.log(data)
 }
