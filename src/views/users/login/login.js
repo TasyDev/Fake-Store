@@ -1,12 +1,13 @@
-import {loginUsers} from "@data/users/loginUsers.js";
+import { loginUsers } from "@data/users/loginUsers.js";
 
 const loginForm = document.getElementById("box1");
 
-loginForm.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    loginUsers(email, password);
+    const userData = await loginUsers(email, password);
+    localStorage.setItem(userData.id, JSON.stringify(userData))
 });
