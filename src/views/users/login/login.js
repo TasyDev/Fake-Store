@@ -10,4 +10,5 @@ loginForm.addEventListener("submit", async (event) => {
 
     const userData = await loginUsers(email, password);
     localStorage.setItem("login", JSON.stringify(userData))
+    window.location.href = "/src/views/users/profile/profile.html?=login";
 });
