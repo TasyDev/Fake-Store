@@ -9,5 +9,5 @@ loginForm.addEventListener("submit", async (event) => {
     const password = event.target.password.value;
 
     const userData = await loginUsers(email, password);
-    localStorage.setItem(userData.id, JSON.stringify(userData))
+    localStorage.setItem("login", JSON.stringify(userData))
 });
